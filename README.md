@@ -3,6 +3,7 @@ Keylogger I made in python, fixed the biggest issues. Made it WAY less leggier a
 
 
 ![This is what the webhook looks like](https://i.postimg.cc/GhSxX7qb/Screenshot-2023-07-01-131439.png)
+
 You may need to either turn off windows defender or add it to your exclusions list to test it.
 
 **Fixed issues:**
