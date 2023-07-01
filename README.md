@@ -3,10 +3,7 @@ Keylogger I made in python, fixed the biggest issues. Made it WAY less leggier a
 
 
 ![This is what the webhook looks like](https://i.postimg.cc/GhSxX7qb/Screenshot-2023-07-01-131439.png)
-
-
 You may need to either turn off windows defender or add it to your exclusions list to test it.
-
 
 **Fixed issues:**
 -   Less lag
@@ -29,6 +26,9 @@ You may need to either turn off windows defender or add it to your exclusions li
  
  1. To edit the Webhook color go to line 66 or go to the `"color": 0x113d22` line
  2.  replace `0x113d22` with your color
+---
+1. To edit the logo go to line 71 or go to the `YOUR_LOGO_LINK_HERE` 
+2. replace `YOUR_LOGO_LINK_HERE` with your logo link
 
  
 
