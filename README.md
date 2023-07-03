@@ -25,10 +25,10 @@ You may need to either turn off windows defender or add it to your exclusions li
  
  **Optional:**
  
- 1. To edit the Webhook color go to line 66 or go to the `"color": 0x113d22` line
+ 1. To edit the Webhook color go to line 60 or go to the `"color": 0x113d22` line
  2.  replace `0x113d22` with your color
 ---
-1. To edit the logo go to line 71 or go to the `YOUR_LOGO_LINK_HERE` 
+1. To edit the logo go to line 14 or go to the `YOUR_LOGO_LINK_HERE` 
 2. replace `YOUR_LOGO_LINK_HERE` with your logo link
 
  
